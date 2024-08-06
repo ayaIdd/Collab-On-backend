@@ -13,7 +13,6 @@ const projectSchema = new Schema(
       default: "not started",
     },
     deadline: { type: Date },
-    isActive: { type: Boolean, default: true },
     objectives: [
       {
         description: { type: String, required: true },
