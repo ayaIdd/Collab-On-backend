@@ -10,7 +10,7 @@ const userSchema = new Schema(
       isActive: { type: Boolean, required: true, default: true },
 
      lastLogin: { type: Date },
-     refreshToken : [String], 
+    //  refreshToken : [String]
     },
    
     { timestamps: true }

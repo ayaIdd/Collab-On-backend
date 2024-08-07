@@ -22,7 +22,7 @@ const refreshTokenMiddleware = async (req, res, next) => {
 
       // Generate new tokens
       const newToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: "10m", // Access token expiration
+        expiresIn: "10m", 
       });
 
       const newRefreshToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_REFRESH, {
@@ -54,3 +54,6 @@ const refreshTokenMiddleware = async (req, res, next) => {
 };
 
 export default refreshTokenMiddleware;
+
+
+
