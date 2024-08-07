@@ -16,7 +16,7 @@ router.post('/:projectId', authMiddleware, async (req, res) => {
             return res.status(404).json({ msg: 'Project not found' });
         }
 
-        const inviteLink = `http://localhost:3000/register?email=${encodeURIComponent(email)}&projectId=${projectId}`;
+        const inviteLink = `http://localhost:4000/register?email=${encodeURIComponent(email)}&projectId=${projectId}`;
 
         // Send the invitation email
         sendInvitationEmail(email, inviteLink);

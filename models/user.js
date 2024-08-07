@@ -10,8 +10,9 @@ const userSchema = new Schema(
       isActive: { type: Boolean, required: true, default: true },
 
      lastLogin: { type: Date },
-
+     refreshToken : [String], 
     },
+   
     { timestamps: true }
   );
 userSchema.pre("save", async function (next) {
