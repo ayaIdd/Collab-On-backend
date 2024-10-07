@@ -18,7 +18,7 @@ const app = express();
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
+    methods: ["GET", "POST", "DELETE", "PUT" , "PATCH"],
     credentials: true,
   })
 );
@@ -30,6 +30,8 @@ app.use(cookieParser());
 
 app.use(morgan("dev"));
 app.use("/", routes);
+
+
 
 // app.use(routeNotFound);
 // app.use(errorHandler);

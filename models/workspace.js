@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const workplaceSchema = new Schema(
+const workspaceSchema = new Schema(
   {
     name: { type: String, required: true },
     businessIndustry: { 
@@ -13,14 +13,20 @@ const workplaceSchema = new Schema(
       required: true,
       enum: ['1-4', '5-19', '20-199', '200+']
     },
-    creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    owner: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // The owner of the workspace
     admins: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    users: [
+      {
+        user: { type: Schema.Types.ObjectId, ref: 'User' },
+        role: { type: String, required: true, enum: ["owner", "admin",'manager', "member"] }
+      }
+    ],
     projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
   },
   { timestamps: true }
 );
 
-const Workplace = mongoose.model('Workplace', workplaceSchema);
+const Workspace = mongoose.model('Workspace', workspaceSchema);
 
-export default Workplace;
+
+export default Workspace;

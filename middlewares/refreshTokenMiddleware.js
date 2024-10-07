@@ -34,7 +34,7 @@ const refreshTokenMiddleware = async (req, res, next) => {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "development",
         sameSite: "strict",
-        maxAge: 10 * 60 * 1000, // Access token cookie expires in 10 minutes
+        maxAge: 60 * 60 * 1000, // Access token cookie expires in 60 minutes
       });
 
       res.cookie("refreshToken", newRefreshToken, {

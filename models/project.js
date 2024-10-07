@@ -19,7 +19,7 @@ const projectSchema = new Schema(
         isCompleted: { type: Boolean, default: false },
       },
     ],
-    workplace: { type: Schema.Types.ObjectId, ref: 'Workplace', required: true },
+    Workspace: { type: Schema.Types.ObjectId, ref: 'Workspace', required: true },
 
   },
   { timestamps: true }

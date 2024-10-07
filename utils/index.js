@@ -6,6 +6,7 @@ export const dbConnection = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
 
     console.log("DB connection established");
+    
   } catch (error) {
     console.log("DB Error: " + error);
   }
@@ -22,7 +23,7 @@ export const createJWT = (res, userId) => {
     httpOnly: true,
     secure: process.env.NODE_ENV !== 'development',
     sameSite: 'strict',
-    maxAge: 10 * 60 * 1000, // 10 minutes
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
   });
 
   res.cookie('refreshToken', refreshToken, {
